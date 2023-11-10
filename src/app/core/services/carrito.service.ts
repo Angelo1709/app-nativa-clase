@@ -23,45 +23,37 @@ export class CarritoService {
   totalCarrito:number = 0;
 
 
+
   modificarCantidadProducto(idProducto:number , cambiarCantidad:number ){
     const index =this.carrito.findIndex(item => 
-      item.producto.id === item.producto.id
+      item.producto.id === idProducto
 
     
     );
-    if(index> -1) {
+    if(index > -1) {
       this.carrito[index].cantidad = cambiarCantidad;
     }
     this.actualizarLocalStorage();
-    
+    this.calcularTotal();
 
   }
 
 
   agregarProducto(producto:Producto, cantidad:number){
     const index =this.carrito.findIndex(item => 
-      item.producto.id === item.producto.id
+      item.producto.id === producto.id
 
     
     );
-    if(index> -1) {
+    if(index > -1) {
       this.carrito[index].cantidad++;
     }else {
       this.carrito.push({
         producto:producto,
         cantidad:cantidad
       })
-      this.actualizarLocalStorage();
-      this.getTotal();
     }
 
-    
-    this.carrito.push({
-      producto:producto,
-      cantidad: cantidad
-      
-      
-    })
     this.actualizarLocalStorage();
     this.calcularTotal();
   }
@@ -84,9 +76,6 @@ export class CarritoService {
 
   }
 
-  getTotal(){
-
-  }
 
   actualizarLocalStorage(){
     localStorage.setItem("carrito", JSON.stringify(this.carrito))
