@@ -22,6 +22,7 @@ export class CarritoService {
   carrito:Carrito[] = [];
   totalCarrito:number = 0;
 
+  
 
 
   modificarCantidadProducto(idProducto:number , cambiarCantidad:number ){
@@ -47,6 +48,7 @@ export class CarritoService {
     );
     if(index > -1) {
       this.carrito[index].cantidad++;
+     
     }else {
       this.carrito.push({
         producto:producto,
@@ -84,6 +86,7 @@ export class CarritoService {
   }
 
   calcularTotal(){
+   
     this.totalCarrito = 0; 
     this.carrito.forEach(item => {
       this.totalCarrito += item.producto.precio * item.cantidad; 

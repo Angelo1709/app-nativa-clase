@@ -4,7 +4,7 @@ export const CATEGORIAS: Categoria[]=[
     
     {
         nombre:'Hamburguesas', 
-        id:0, 
+        id:1, 
         imgUrl:'https://assets.unileversolutions.com/recipes-v2/235485.jpg',
         productos:[{
             nombre:"hamburguesa 1",

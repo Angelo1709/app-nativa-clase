@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+
 import { CarritoService } from '../core/services/carrito.service';
+import { Component } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab3',
